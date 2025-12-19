@@ -1,0 +1,593 @@
+{
+  "tickets": [
+    {
+      "id": "TCK-1001",
+      "title": "Can't reset password",
+      "description": "Customer reports that the password reset email never arrives. They have checked spam folder and waited 30 minutes. This is affecting their ability to access their account for an important deadline.",
+      "status": "open",
+      "priority": "high",
+      "customer": {
+        "name": "Acme Corporation",
+        "email": "it@acme.example"
+      },
+      "updatedAt": "2025-12-15T14:30:00Z",
+      "activity": [
+        {
+          "id": "ACT-1",
+          "type": "comment",
+          "content": "Customer called in - very frustrated. Urgent issue.",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-15T14:30:00Z"
+        },
+        {
+          "id": "ACT-2",
+          "type": "status_change",
+          "from": "pending",
+          "to": "open",
+          "author": "System",
+          "createdAt": "2025-12-15T10:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1002",
+      "title": "Billing discrepancy on invoice #4521",
+      "description": "Customer was charged twice for their monthly subscription. They are requesting a refund for the duplicate charge of $299.",
+      "status": "pending",
+      "priority": "high",
+      "customer": {
+        "name": "TechStart Inc",
+        "email": "billing@techstart.example"
+      },
+      "updatedAt": "2025-12-14T09:15:00Z",
+      "activity": [
+        {
+          "id": "ACT-3",
+          "type": "comment",
+          "content": "Escalated to finance team for review.",
+          "author": "Mike Johnson",
+          "createdAt": "2025-12-14T09:15:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1003",
+      "title": "Feature request: Dark mode",
+      "description": "Multiple users have requested a dark mode option for the dashboard. This would help reduce eye strain during long work sessions.",
+      "status": "open",
+      "priority": "low",
+      "customer": {
+        "name": "Global Solutions Ltd",
+        "email": "feedback@globalsolutions.example"
+      },
+      "updatedAt": "2025-12-13T16:45:00Z",
+      "activity": [
+        {
+          "id": "ACT-4",
+          "type": "comment",
+          "content": "Added to product backlog for Q1 2026 consideration.",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-13T16:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1004",
+      "title": "API rate limiting errors",
+      "description": "Customer's integration is hitting rate limits unexpectedly. They claim their usage is within the documented limits. Need to investigate their API key usage patterns.",
+      "status": "open",
+      "priority": "urgent",
+      "customer": {
+        "name": "DataFlow Systems",
+        "email": "dev@dataflow.example"
+      },
+      "updatedAt": "2025-12-15T11:20:00Z",
+      "activity": [
+        {
+          "id": "ACT-5",
+          "type": "status_change",
+          "from": "pending",
+          "to": "open",
+          "author": "System",
+          "createdAt": "2025-12-15T11:20:00Z"
+        },
+        {
+          "id": "ACT-6",
+          "type": "comment",
+          "content": "Checking API logs for anomalies.",
+          "author": "Alex Kim",
+          "createdAt": "2025-12-15T11:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1005",
+      "title": "Login page not loading on Safari",
+      "description": "Users on Safari 17.x report that the login page shows a blank white screen. Works fine on Chrome and Firefox. Console shows JavaScript errors.",
+      "status": "pending",
+      "priority": "high",
+      "customer": {
+        "name": "Creative Agency Co",
+        "email": "support@creativeagency.example"
+      },
+      "updatedAt": "2025-12-12T08:30:00Z",
+      "activity": [
+        {
+          "id": "ACT-7",
+          "type": "comment",
+          "content": "Reproduced the issue. Sending to dev team.",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-12T08:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1006",
+      "title": "Export to CSV not working",
+      "description": "The 'Export to CSV' button in the reports section does nothing when clicked. No download starts and no error message appears.",
+      "status": "closed",
+      "priority": "medium",
+      "customer": {
+        "name": "Analytics Pro",
+        "email": "help@analyticspro.example"
+      },
+      "updatedAt": "2025-12-10T15:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-8",
+          "type": "status_change",
+          "from": "open",
+          "to": "closed",
+          "author": "Mike Johnson",
+          "createdAt": "2025-12-10T15:00:00Z"
+        },
+        {
+          "id": "ACT-9",
+          "type": "comment",
+          "content": "Fixed in release v2.4.1. Customer confirmed working.",
+          "author": "Mike Johnson",
+          "createdAt": "2025-12-10T14:55:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1007",
+      "title": "Need to update company name",
+      "description": "Our company recently rebranded from 'Old Corp' to 'New Innovations LLC'. Please update our account name across all systems.",
+      "status": "closed",
+      "priority": "low",
+      "customer": {
+        "name": "New Innovations LLC",
+        "email": "admin@newinnovations.example"
+      },
+      "updatedAt": "2025-12-08T12:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-10",
+          "type": "status_change",
+          "from": "open",
+          "to": "closed",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-08T12:00:00Z"
+        },
+        {
+          "id": "ACT-11",
+          "type": "comment",
+          "content": "Account name updated successfully.",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-08T11:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1008",
+      "title": "Two-factor authentication not sending codes",
+      "description": "Customer cannot receive 2FA codes via SMS. They have verified their phone number is correct. This is blocking them from accessing their admin account.",
+      "status": "open",
+      "priority": "urgent",
+      "customer": {
+        "name": "SecureNet Services",
+        "email": "security@securenet.example"
+      },
+      "updatedAt": "2025-12-15T16:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-12",
+          "type": "comment",
+          "content": "Checking SMS gateway status. May be a provider issue.",
+          "author": "Alex Kim",
+          "createdAt": "2025-12-15T16:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1009",
+      "title": "Slow dashboard loading times",
+      "description": "Dashboard takes 15+ seconds to load. This started happening after the last update. Performance was fine before.",
+      "status": "pending",
+      "priority": "medium",
+      "customer": {
+        "name": "Quick Commerce",
+        "email": "tech@quickcommerce.example"
+      },
+      "updatedAt": "2025-12-11T10:30:00Z",
+      "activity": [
+        {
+          "id": "ACT-13",
+          "type": "comment",
+          "content": "Performance team is investigating. May be related to new analytics widget.",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-11T10:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1010",
+      "title": "Webhook deliveries failing",
+      "description": "Our webhook endpoint is not receiving any events since yesterday. We need this for our automated workflow. Endpoint URL: https://api.example.com/webhooks",
+      "status": "open",
+      "priority": "high",
+      "customer": {
+        "name": "AutomateIT",
+        "email": "devops@automateit.example"
+      },
+      "updatedAt": "2025-12-14T17:45:00Z",
+      "activity": [
+        {
+          "id": "ACT-14",
+          "type": "comment",
+          "content": "Investigating webhook delivery logs.",
+          "author": "Alex Kim",
+          "createdAt": "2025-12-14T17:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1011",
+      "title": "Mobile app crashes on startup",
+      "description": "iOS app version 3.2.0 crashes immediately after splash screen on iPhone 14 Pro. Android version works fine.",
+      "status": "open",
+      "priority": "urgent",
+      "customer": {
+        "name": "Mobile First Inc",
+        "email": "apps@mobilefirst.example"
+      },
+      "updatedAt": "2025-12-15T09:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-15",
+          "type": "comment",
+          "content": "Crash logs received. Appears to be a memory issue with new iOS 17.2.",
+          "author": "Mike Johnson",
+          "createdAt": "2025-12-15T09:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1012",
+      "title": "Request for API documentation",
+      "description": "We're planning to build an integration and need comprehensive API documentation. Is there a developer portal we can access?",
+      "status": "closed",
+      "priority": "low",
+      "customer": {
+        "name": "Integration Partners",
+        "email": "dev@integrationpartners.example"
+      },
+      "updatedAt": "2025-12-05T14:20:00Z",
+      "activity": [
+        {
+          "id": "ACT-16",
+          "type": "status_change",
+          "from": "open",
+          "to": "closed",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-05T14:20:00Z"
+        },
+        {
+          "id": "ACT-17",
+          "type": "comment",
+          "content": "Sent link to developer portal: https://docs.example.com/api",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-05T14:15:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1013",
+      "title": "SSO integration not working with Okta",
+      "description": "SAML SSO integration with Okta fails during authentication. Error: 'Invalid signature'. We followed the setup guide exactly.",
+      "status": "pending",
+      "priority": "high",
+      "customer": {
+        "name": "Enterprise Solutions",
+        "email": "it@enterprisesolutions.example"
+      },
+      "updatedAt": "2025-12-13T11:15:00Z",
+      "activity": [
+        {
+          "id": "ACT-18",
+          "type": "comment",
+          "content": "Requested SAML metadata file from customer for review.",
+          "author": "Alex Kim",
+          "createdAt": "2025-12-13T11:15:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1014",
+      "title": "Data import failing for large files",
+      "description": "Trying to import a CSV with 50,000 rows. Import starts but fails at around 30% with a timeout error. Smaller files work fine.",
+      "status": "open",
+      "priority": "medium",
+      "customer": {
+        "name": "Big Data Corp",
+        "email": "data@bigdatacorp.example"
+      },
+      "updatedAt": "2025-12-12T16:30:00Z",
+      "activity": [
+        {
+          "id": "ACT-19",
+          "type": "comment",
+          "content": "Suggested breaking file into smaller chunks as workaround.",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-12T16:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1015",
+      "title": "Email notifications not being received",
+      "description": "Team members are not receiving email notifications for new assignments. Notification settings are all enabled. Started 3 days ago.",
+      "status": "pending",
+      "priority": "medium",
+      "customer": {
+        "name": "Project Masters",
+        "email": "admin@projectmasters.example"
+      },
+      "updatedAt": "2025-12-14T13:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-20",
+          "type": "comment",
+          "content": "Checking email delivery service logs.",
+          "author": "Mike Johnson",
+          "createdAt": "2025-12-14T13:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1016",
+      "title": "Incorrect timezone in reports",
+      "description": "All timestamps in generated reports show UTC instead of our local timezone (PST). This is causing confusion in our team.",
+      "status": "closed",
+      "priority": "medium",
+      "customer": {
+        "name": "West Coast Trading",
+        "email": "reports@westcoast.example"
+      },
+      "updatedAt": "2025-12-09T18:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-21",
+          "type": "status_change",
+          "from": "open",
+          "to": "closed",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-09T18:00:00Z"
+        },
+        {
+          "id": "ACT-22",
+          "type": "comment",
+          "content": "Guided customer to timezone settings in account preferences.",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-09T17:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1017",
+      "title": "Cannot delete old projects",
+      "description": "The delete button for archived projects is grayed out. We need to remove old projects to clean up our workspace.",
+      "status": "open",
+      "priority": "low",
+      "customer": {
+        "name": "Clean Workspace Inc",
+        "email": "admin@cleanworkspace.example"
+      },
+      "updatedAt": "2025-12-11T14:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-23",
+          "type": "comment",
+          "content": "This is by design - archived projects must be unarchived first. Added to documentation todo.",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-11T14:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1018",
+      "title": "Search function returns no results",
+      "description": "Global search in the app returns 'No results found' for everything, even items we know exist. This worked fine last week.",
+      "status": "open",
+      "priority": "high",
+      "customer": {
+        "name": "Search Masters",
+        "email": "help@searchmasters.example"
+      },
+      "updatedAt": "2025-12-15T12:45:00Z",
+      "activity": [
+        {
+          "id": "ACT-24",
+          "type": "comment",
+          "content": "Search index may need rebuilding. Escalating to backend team.",
+          "author": "Alex Kim",
+          "createdAt": "2025-12-15T12:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1019",
+      "title": "Custom fields not saving",
+      "description": "When we add custom fields to our project template, they don't persist after saving. The fields disappear on page refresh.",
+      "status": "pending",
+      "priority": "medium",
+      "customer": {
+        "name": "Template Pros",
+        "email": "support@templatepros.example"
+      },
+      "updatedAt": "2025-12-13T09:30:00Z",
+      "activity": [
+        {
+          "id": "ACT-25",
+          "type": "comment",
+          "content": "Bug confirmed. Dev team working on fix for next release.",
+          "author": "Mike Johnson",
+          "createdAt": "2025-12-13T09:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1020",
+      "title": "Upgrade plan inquiry",
+      "description": "We're interested in upgrading from Professional to Enterprise plan. Can someone explain the differences and pricing?",
+      "status": "closed",
+      "priority": "medium",
+      "customer": {
+        "name": "Growing Business LLC",
+        "email": "ceo@growingbusiness.example"
+      },
+      "updatedAt": "2025-12-07T10:00:00Z",
+      "activity": [
+        {
+          "id": "ACT-26",
+          "type": "status_change",
+          "from": "open",
+          "to": "closed",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-07T10:00:00Z"
+        },
+        {
+          "id": "ACT-27",
+          "type": "comment",
+          "content": "Connected customer with sales team. Meeting scheduled.",
+          "author": "Emily Watson",
+          "createdAt": "2025-12-07T09:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1021",
+      "title": "File upload size limit too small",
+      "description": "We need to upload design files that are 50MB+ but the current limit is 25MB. Is there a way to increase this?",
+      "status": "open",
+      "priority": "low",
+      "customer": {
+        "name": "Design Studio X",
+        "email": "studio@designx.example"
+      },
+      "updatedAt": "2025-12-10T11:30:00Z",
+      "activity": [
+        {
+          "id": "ACT-28",
+          "type": "comment",
+          "content": "Limit increase available on Enterprise plan. Forwarded pricing info.",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-10T11:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1022",
+      "title": "Calendar sync with Google Calendar broken",
+      "description": "Events created in the app are not syncing to Google Calendar anymore. Re-authorization doesn't help. Was working until yesterday.",
+      "status": "open",
+      "priority": "high",
+      "customer": {
+        "name": "Schedule Perfect",
+        "email": "sync@scheduleperfect.example"
+      },
+      "updatedAt": "2025-12-15T08:15:00Z",
+      "activity": [
+        {
+          "id": "ACT-29",
+          "type": "comment",
+          "content": "Investigating Google API changes. May be related to their recent update.",
+          "author": "Alex Kim",
+          "createdAt": "2025-12-15T08:15:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1023",
+      "title": "Cannot change user permissions",
+      "description": "As admin, I cannot modify permissions for team members. The save button does nothing. Getting console errors.",
+      "status": "pending",
+      "priority": "high",
+      "customer": {
+        "name": "Team Leaders Co",
+        "email": "admin@teamleaders.example"
+      },
+      "updatedAt": "2025-12-14T15:30:00Z",
+      "activity": [
+        {
+          "id": "ACT-30",
+          "type": "comment",
+          "content": "Reproduced issue. Frontend bug in permissions module.",
+          "author": "Mike Johnson",
+          "createdAt": "2025-12-14T15:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1024",
+      "title": "Print view cuts off content",
+      "description": "When printing reports, the right side of tables gets cut off. Page margins seem to be ignored.",
+      "status": "closed",
+      "priority": "low",
+      "customer": {
+        "name": "Paper Trail Inc",
+        "email": "print@papertrail.example"
+      },
+      "updatedAt": "2025-12-06T16:45:00Z",
+      "activity": [
+        {
+          "id": "ACT-31",
+          "type": "status_change",
+          "from": "open",
+          "to": "closed",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-06T16:45:00Z"
+        },
+        {
+          "id": "ACT-32",
+          "type": "comment",
+          "content": "Workaround: Use landscape orientation. Fix planned for v2.5.",
+          "author": "Sarah Chen",
+          "createdAt": "2025-12-06T16:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TCK-1025",
+      "title": "Duplicate entries appearing in dropdown",
+      "description": "The client selection dropdown shows some clients multiple times. This is confusing our sales team when creating new entries.",
+      "status": "open",
+      "priority": "medium",
+      "customer": {
+        "name": "Sales Force Pro",
+        "email": "crm@salesforcepro.example"
+      },
+      "updatedAt": "2025-12-12T13:15:00Z",
+      "activity": [
+        {
+          "id": "ACT-33",
+          "type": "comment",
+          "content": "Database has duplicate records. Need to run cleanup script.",
+          "author": "Alex Kim",
+          "createdAt": "2025-12-12T13:15:00Z"
+        }
+      ]
+    }
+  ]
+}
