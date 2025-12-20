@@ -12,6 +12,7 @@ import { TicketTable } from "../components/tickets/TicketTable";
 import { LoadingState } from "../components/ui/LoadingState";
 import { ErrorState } from "../components/ui/ErrorState";
 import { EmptyState } from "../components/ui/EmptyState";
+import { TicketModal } from "../components/tickets/TicketModal";
 
 export default function Home() {
   const { tickets, loading, error, refetch } = useTickets();
@@ -46,8 +47,10 @@ export default function Home() {
 
   const handleTicketClick = (ticket: Ticket) => {
     setSelectedTicket(ticket);
-    // Modal will be added in next step
-    console.log("Selected ticket:", ticket.id);
+  };
+
+  const handleModalClose = () => {
+    setSelectedTicket(null);
   };
 
   if (loading) {
@@ -59,28 +62,36 @@ export default function Home() {
   }
 
   return (
-    <Flex direction="column" gap="4">
-      <Heading size="6">Support Tickets</Heading>
+    <main className="p-14">
+      <Flex direction="column" gap="4">
+        <Heading size="6">Support Tickets</Heading>
 
-      <TicketFilters
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        statusFilter={statusFilter}
-        onStatusFilterChange={setStatusFilter}
-      />
-
-      {filteredTickets.length === 0 ? (
-        <EmptyState
-          title="No tickets found"
-          description={
-            searchQuery || statusFilter !== "all"
-              ? "Try adjusting your search or filters"
-              : "No tickets available"
-          }
+        <TicketFilters
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          statusFilter={statusFilter}
+          onStatusFilterChange={setStatusFilter}
         />
-      ) : (
-        <TicketTable tickets={filteredTickets} onClick={handleTicketClick} />
-      )}
-    </Flex>
+
+        {filteredTickets.length === 0 ? (
+          <EmptyState
+            title="No tickets found"
+            description={
+              searchQuery || statusFilter !== "all"
+                ? "Try adjusting your search or filters"
+                : "No tickets available"
+            }
+          />
+        ) : (
+          <TicketTable tickets={filteredTickets} onClick={handleTicketClick} />
+        )}
+
+        <TicketModal
+          ticket={selectedTicket}
+          open={selectedTicket !== null}
+          onClose={handleModalClose}
+        />
+      </Flex>
+    </main>
   );
 }
