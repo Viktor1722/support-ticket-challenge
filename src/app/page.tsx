@@ -7,25 +7,34 @@ import { useTickets } from "../hooks/useTickets";
 import {
   TicketFilters,
   StatusFilter,
+  PriorityFilter,
 } from "../components/tickets/TicketFilters";
 import { TicketTable } from "../components/tickets/TicketTable";
 import { LoadingState } from "../components/ui/LoadingState";
 import { ErrorState } from "../components/ui/ErrorState";
 import { EmptyState } from "../components/ui/EmptyState";
+import { Pagination } from "../components/ui/Pagination";
 import { TicketModal } from "../components/tickets/TicketModal";
+
+const ITEMS_PER_PAGE = 10;
 
 export default function Home() {
   const { tickets, loading, error, refetch, updateTicketInList } = useTickets();
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [priorityFilter, setPriorityFilter] = useState<PriorityFilter>("all");
   const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredTickets = useMemo(() => {
     let result = tickets;
 
-    // Filter by status
     if (statusFilter !== "all") {
       result = result.filter((ticket) => ticket.status === statusFilter);
+    }
+
+    if (priorityFilter !== "all") {
+      result = result.filter((ticket) => ticket.priority === priorityFilter);
     }
 
     // Filter by search query (title)
@@ -43,7 +52,33 @@ export default function Home() {
     );
 
     return result;
-  }, [tickets, statusFilter, searchQuery]);
+  }, [tickets, statusFilter, priorityFilter, searchQuery]);
+
+  const totalPages = Math.ceil(filteredTickets.length / ITEMS_PER_PAGE);
+
+  const paginatedTickets = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredTickets.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredTickets, currentPage]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
+
+  const handleStatusFilterChange = (status: StatusFilter) => {
+    setStatusFilter(status);
+    setCurrentPage(1);
+  };
+
+  const handlePriorityFilterChange = (priority: PriorityFilter) => {
+    setPriorityFilter(priority);
+    setCurrentPage(1);
+  };
 
   const handleTicketClick = (ticket: Ticket) => {
     setSelectedTicket(ticket);
@@ -73,22 +108,34 @@ export default function Home() {
 
         <TicketFilters
           searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
+          onSearchChange={handleSearchChange}
           statusFilter={statusFilter}
-          onStatusFilterChange={setStatusFilter}
+          onStatusFilterChange={handleStatusFilterChange}
+          priorityFilter={priorityFilter}
+          onPriorityFilterChange={handlePriorityFilterChange}
         />
 
         {filteredTickets.length === 0 ? (
           <EmptyState
             title="No tickets found"
             description={
-              searchQuery || statusFilter !== "all"
+              searchQuery || statusFilter !== "all" || priorityFilter !== "all"
                 ? "Try adjusting your search or filters"
                 : "No tickets available"
             }
           />
         ) : (
-          <TicketTable tickets={filteredTickets} onClick={handleTicketClick} />
+          <>
+            <TicketTable
+              tickets={paginatedTickets}
+              onClick={handleTicketClick}
+            />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </>
         )}
 
         <TicketModal

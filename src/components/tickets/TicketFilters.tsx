@@ -2,15 +2,18 @@
 
 import { Flex, TextField, Select } from "@radix-ui/themes";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { TicketStatus } from "../../types/ticket";
+import { TicketStatus, TicketPriority } from "../../types/ticket";
 
 export type StatusFilter = TicketStatus | "all";
+export type PriorityFilter = TicketPriority | "all";
 
 interface TicketFiltersProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
   statusFilter: StatusFilter;
   onStatusFilterChange: (status: StatusFilter) => void;
+  priorityFilter: PriorityFilter;
+  onPriorityFilterChange: (priority: PriorityFilter) => void;
 }
 
 export function TicketFilters({
@@ -18,6 +21,8 @@ export function TicketFilters({
   onSearchChange,
   statusFilter,
   onStatusFilterChange,
+  priorityFilter,
+  onPriorityFilterChange,
 }: TicketFiltersProps) {
   return (
     <Flex gap="3" wrap="wrap">
@@ -44,7 +49,22 @@ export function TicketFilters({
           <Select.Item value="closed">Closed</Select.Item>
         </Select.Content>
       </Select.Root>
+
+      <Select.Root
+        value={priorityFilter}
+        onValueChange={(value) =>
+          onPriorityFilterChange(value as PriorityFilter)
+        }
+      >
+        <Select.Trigger placeholder="Filter by priority" />
+        <Select.Content>
+          <Select.Item value="all">All Priorities</Select.Item>
+          <Select.Item value="urgent">Urgent</Select.Item>
+          <Select.Item value="high">High</Select.Item>
+          <Select.Item value="medium">Medium</Select.Item>
+          <Select.Item value="low">Low</Select.Item>
+        </Select.Content>
+      </Select.Root>
     </Flex>
   );
 }
-
