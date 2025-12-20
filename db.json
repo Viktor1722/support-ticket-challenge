@@ -125,13 +125,13 @@
       "id": "TCK-1006",
       "title": "Export to CSV not working",
       "description": "The 'Export to CSV' button in the reports section does nothing when clicked. No download starts and no error message appears.",
-      "status": "closed",
+      "status": "pending",
       "priority": "medium",
       "customer": {
         "name": "Analytics Pro",
         "email": "help@analyticspro.example"
       },
-      "updatedAt": "2025-12-10T15:00:00Z",
+      "updatedAt": "2025-12-20T14:40:22.003Z",
       "activity": [
         {
           "id": "ACT-8",
@@ -189,7 +189,7 @@
         "name": "SecureNet Services",
         "email": "security@securenet.example"
       },
-      "updatedAt": "2025-12-15T16:00:00Z",
+      "updatedAt": "2025-12-20T14:39:44.751Z",
       "activity": [
         {
           "id": "ACT-12",
@@ -204,13 +204,13 @@
       "id": "TCK-1009",
       "title": "Slow dashboard loading times",
       "description": "Dashboard takes 15+ seconds to load. This started happening after the last update. Performance was fine before.",
-      "status": "pending",
+      "status": "closed",
       "priority": "medium",
       "customer": {
         "name": "Quick Commerce",
         "email": "tech@quickcommerce.example"
       },
-      "updatedAt": "2025-12-11T10:30:00Z",
+      "updatedAt": "2025-12-20T14:40:02.089Z",
       "activity": [
         {
           "id": "ACT-13",
@@ -338,13 +338,13 @@
       "id": "TCK-1015",
       "title": "Email notifications not being received",
       "description": "Team members are not receiving email notifications for new assignments. Notification settings are all enabled. Started 3 days ago.",
-      "status": "pending",
+      "status": "closed",
       "priority": "medium",
       "customer": {
         "name": "Project Masters",
         "email": "admin@projectmasters.example"
       },
-      "updatedAt": "2025-12-14T13:00:00Z",
+      "updatedAt": "2025-12-20T15:25:23.473Z",
       "activity": [
         {
           "id": "ACT-20",
@@ -430,13 +430,13 @@
       "id": "TCK-1019",
       "title": "Custom fields not saving",
       "description": "When we add custom fields to our project template, they don't persist after saving. The fields disappear on page refresh.",
-      "status": "pending",
+      "status": "closed",
       "priority": "medium",
       "customer": {
         "name": "Template Pros",
         "email": "support@templatepros.example"
       },
-      "updatedAt": "2025-12-13T09:30:00Z",
+      "updatedAt": "2025-12-20T14:39:58.570Z",
       "activity": [
         {
           "id": "ACT-25",
@@ -522,13 +522,13 @@
       "id": "TCK-1023",
       "title": "Cannot change user permissions",
       "description": "As admin, I cannot modify permissions for team members. The save button does nothing. Getting console errors.",
-      "status": "pending",
+      "status": "open",
       "priority": "high",
       "customer": {
         "name": "Team Leaders Co",
         "email": "admin@teamleaders.example"
       },
-      "updatedAt": "2025-12-14T15:30:00Z",
+      "updatedAt": "2025-12-20T15:25:12.723Z",
       "activity": [
         {
           "id": "ACT-30",

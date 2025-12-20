@@ -15,7 +15,7 @@ import { EmptyState } from "../components/ui/EmptyState";
 import { TicketModal } from "../components/tickets/TicketModal";
 
 export default function Home() {
-  const { tickets, loading, error, refetch } = useTickets();
+  const { tickets, loading, error, refetch, updateTicketInList } = useTickets();
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null);
@@ -51,6 +51,11 @@ export default function Home() {
 
   const handleModalClose = () => {
     setSelectedTicket(null);
+  };
+
+  const handleTicketUpdate = (updatedTicket: Ticket) => {
+    updateTicketInList(updatedTicket);
+    setSelectedTicket(updatedTicket);
   };
 
   if (loading) {
@@ -90,6 +95,7 @@ export default function Home() {
           ticket={selectedTicket}
           open={selectedTicket !== null}
           onClose={handleModalClose}
+          onTicketUpdate={handleTicketUpdate}
         />
       </Flex>
     </main>

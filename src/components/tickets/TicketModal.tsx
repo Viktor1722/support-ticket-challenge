@@ -1,14 +1,25 @@
 "use client";
 
-import { Dialog, Flex, Text, Heading, Separator, Box } from "@radix-ui/themes";
-import { Ticket } from "../../types/ticket";
+import {
+  Dialog,
+  Flex,
+  Text,
+  Heading,
+  Separator,
+  Box,
+  Select,
+  Callout,
+} from "@radix-ui/themes";
+import { Ticket, TicketStatus } from "../../types/ticket";
 import { StatusBadge } from "./StatusBadge";
 import { PriorityBadge } from "./PriorityBadge";
+import { useTicketUpdate } from "../../hooks/useTicketUpdate";
 
 interface TicketModalProps {
   ticket: Ticket | null;
   open: boolean;
   onClose: () => void;
+  onTicketUpdate: (updatedTicket: Ticket) => void;
 }
 
 function formatDate(dateString: string): string {
@@ -22,8 +33,26 @@ function formatDate(dateString: string): string {
   });
 }
 
-export function TicketModal({ ticket, open, onClose }: TicketModalProps) {
+export function TicketModal({
+  ticket,
+  open,
+  onClose,
+  onTicketUpdate,
+}: TicketModalProps) {
+  const { updating, error, updateStatus, clearError } = useTicketUpdate();
+
   if (!ticket) return null;
+
+  const handleStatusChange = async (newStatus: string) => {
+    clearError();
+    const updatedTicket = await updateStatus(
+      ticket.id,
+      newStatus as TicketStatus
+    );
+    if (updatedTicket) {
+      onTicketUpdate(updatedTicket);
+    }
+  };
 
   return (
     <Dialog.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
@@ -38,12 +67,29 @@ export function TicketModal({ ticket, open, onClose }: TicketModalProps) {
         </Dialog.Title>
 
         <Flex direction="column" gap="4" mt="4">
+          {error && (
+            <Callout.Root color="red" size="1">
+              <Callout.Text>{error}</Callout.Text>
+            </Callout.Root>
+          )}
+
           <Flex gap="4">
             <Flex direction="column" gap="1">
               <Text size="1" color="gray">
                 Status
               </Text>
-              <StatusBadge status={ticket.status} />
+              <Select.Root
+                value={ticket.status}
+                onValueChange={handleStatusChange}
+                disabled={updating}
+              >
+                <Select.Trigger />
+                <Select.Content>
+                  <Select.Item value="open">Open</Select.Item>
+                  <Select.Item value="pending">Pending</Select.Item>
+                  <Select.Item value="closed">Closed</Select.Item>
+                </Select.Content>
+              </Select.Root>
             </Flex>
             <Flex direction="column" gap="1">
               <Text size="1" color="gray">
