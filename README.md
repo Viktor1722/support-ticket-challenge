@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Support Tickets
 
-## Getting Started
+A React application for browsing and updating customer support tickets. Built as a take-home assignment demonstrating data fetching, state management, and clean UI/UX patterns.
 
-First, run the development server:
+### Installation
+
+Install necessary packages
+
+```bash
+npm install
+```
+
+You need **two terminals** running simultaneously:
+
+**Terminal 1 - Start the mock API:**
+
+```bash
+npm run server
+```
+
+This starts json-server on http://localhost:3001
+
+**Terminal 2 - Start the frontend:**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This starts Next.js on http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+### Required Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Ticket List** - Table view with title, status, priority, customer, and updated date
+- **Search** - Filter tickets by title (client-side)
+- **Status Filter** - Filter by Open / Pending / Closed
+- **Sort** - Tickets sorted by most recently updated
+- **Ticket Detail Modal** - View full ticket info including description and activity
+- **Status Update** - Change ticket status from the modal
+- **UX States** - Loading spinner, error with retry, empty state messages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Bonus Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Priority Filter** - Filter by Urgent / High / Medium / Low
+- **Pagination** - 10 tickets per page with Previous/Next navigation
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack & Trade-offs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Next.js
+
+- The dev team already uses Next.js in most of their projects.
+- Built-in TypeScript support and fast refresh for development and fast project setup.
+- App Router provides a clean project structure with `src/` directory support
+
+### Radix UI
+
+- Production-ready, accessible components out of the box and easy to use and setup
+- Array of components like Dialog, Select, Table, Badge which were used in the project.
+- Access to an icon library
+
+### State & Data Management
+
+The application relies on local React hooks (`useState`, custom hooks) for managing UI and ticket state. I choose to use it since i am most comfortable with it and for this project we dont need additional complexity.
+
+**React Context** was not introduced because:
+
+- State is not shared deeply across unrelated components
+- Prop drilling is minimal and manageable
+
+**React Query** was not used because the app does not rely on complex server state.
+
+- Ticket data is fetched from a local mock API and does not require caching, background refetching, or synchronization logic.
+
+### Pessimistic vs Optimistic Updates
+
+- I chose **pessimistic updates** for status changes since its simpler to implement and reason about
+- No rollback logic needed if the API fails
+- Trade-off: Slightly slower UX, but more reliable
