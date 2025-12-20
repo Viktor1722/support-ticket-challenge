@@ -81,3 +81,11 @@ The application relies on local React hooks (`useState`, custom hooks) for manag
 - I chose **pessimistic updates** for status changes since its simpler to implement and reason about
 - No rollback logic needed if the API fails
 - Trade-off: Slightly slower UX, but more reliable
+
+### What I'd Do Next (With More Time)
+
+- **Debounced Search** - Add 300ms delay to avoid API calls on every keystroke
+- **Tests** - Unit tests.
+- **Accessibility Audit** - Verify keyboard navigation, screen reader support
+- **Assigned to Me** - Add mock current user and filter toggle
+- **Toast Notifications** - Show success/error feedback for status updates
